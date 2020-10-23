@@ -22,5 +22,13 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "any-color": {
+      "tags": []
+    },
+    "any-color-e2e": {
+      "tags": [],
+      "implicitDependencies": ["any-color"]
+    }
+  }
 }
