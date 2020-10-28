@@ -30,7 +30,7 @@
         ]
       }
     ],
-    "comma-dangle": ["warn", "always-multiline"],
+    "comma-dangle": ["warn", "only-multiline"],
     "semi": ["warn", "always"],
     "no-console": ["warn"],
     "import/order": [

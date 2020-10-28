@@ -8,7 +8,7 @@
     "build": "nx build",
     "build:any-color": "nx run any-color:build --no-cache",
     "test": "nx test",
-    "lint": "nx workspace-lint && nx lint",
+    "lint": "yarn nx run-many --target=lint --projects=any-color,chromex",
     "e2e": "nx e2e",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
