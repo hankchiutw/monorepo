@@ -52,6 +52,7 @@
     "@types/chrome": "^0.0.126",
     "@types/jest": "26.0.8",
     "@types/node": "~8.9.4",
+    "@types/react-dom": "^16.9.9",
     "@types/styled-jsx": "2.2.8",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
