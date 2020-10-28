@@ -1,1 +1,1 @@
-import './app/app.element.ts';
+console.log('xxx: main.ts');

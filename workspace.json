@@ -15,9 +15,10 @@
             "main": "apps/any-color/src/main.ts",
             "polyfills": "apps/any-color/src/polyfills.ts",
             "tsConfig": "apps/any-color/tsconfig.app.json",
+            "webpackConfig": "apps/any-color/webpack.config.js",
             "assets": [
-              "apps/any-color/src/favicon.ico",
-              "apps/any-color/src/assets"
+              "apps/any-color/src/assets",
+              "apps/any-color/src/manifest.json"
             ],
             "styles": ["apps/any-color/src/styles.scss"],
             "scripts": []
