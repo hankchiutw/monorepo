@@ -8,12 +8,12 @@ interface EventPayload {
 
 type EventCallback<T> = (detail: EventDetail) => T | Promise<T>;
 
-export type EventDetail = {};
+export type EventDetail = Record<string, unknown>;
 
 @injectable()
 export class MessageService {
   private eventMap: {
-    [eventName: string]: EventCallback<string | number | {}>;
+    [eventName: string]: EventCallback<unknown>;
   } = {};
 
   constructor() {
