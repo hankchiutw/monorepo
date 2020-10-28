@@ -28,7 +28,8 @@
   },
   "private": true,
   "dependencies": {
-    "document-register-element": "1.13.1"
+    "document-register-element": "1.13.1",
+    "inversify": "^5.0.1"
   },
   "devDependencies": {
     "@nrwl/angular": "^10.3.1",
@@ -40,6 +41,7 @@
     "@nrwl/react": "^10.3.1",
     "@nrwl/web": "10.3.1",
     "@nrwl/workspace": "10.3.1",
+    "@types/chrome": "^0.0.126",
     "@types/jest": "26.0.8",
     "@types/node": "~8.9.4",
     "@typescript-eslint/eslint-plugin": "4.3.0",
