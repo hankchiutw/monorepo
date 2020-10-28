@@ -29,6 +29,9 @@
     "any-color-e2e": {
       "tags": [],
       "implicitDependencies": ["any-color"]
+    },
+    "chromex": {
+      "tags": []
     }
   }
 }
