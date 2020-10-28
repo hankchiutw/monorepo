@@ -1,1 +1,1 @@
-export * from './lib/chromex';
+export * from './inversify.config';
