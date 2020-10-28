@@ -29,9 +29,17 @@
   "private": true,
   "dependencies": {
     "document-register-element": "1.13.1",
-    "inversify": "^5.0.1"
+    "inversify": "^5.0.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "reflect-metadata": "^0.1.13",
+    "styled-jsx": "3.3.0"
   },
   "devDependencies": {
+    "@babel/core": "7.9.6",
+    "@babel/preset-env": "7.9.6",
+    "@babel/preset-react": "7.9.4",
+    "@babel/preset-typescript": "7.9.0",
     "@nrwl/angular": "^10.3.1",
     "@nrwl/cli": "10.3.1",
     "@nrwl/cypress": "10.3.1",
@@ -44,8 +52,10 @@
     "@types/chrome": "^0.0.126",
     "@types/jest": "26.0.8",
     "@types/node": "~8.9.4",
+    "@types/styled-jsx": "2.2.8",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
+    "babel-jest": "26.2.2",
     "cypress": "^4.1.0",
     "dotenv": "6.2.0",
     "eslint": "7.10.0",

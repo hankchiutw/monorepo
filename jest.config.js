@@ -1,3 +1,7 @@
 module.exports = {
-  projects: ['<rootDir>/apps/any-color', '<rootDir>/libs/chromex'],
+  projects: [
+    '<rootDir>/apps/any-color',
+    '<rootDir>/libs/chromex',
+    '<rootDir>/libs/color-inspector',
+  ],
 };

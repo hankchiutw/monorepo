@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "chromex": ["libs/chromex/src/index.ts"]
+      "chromex": ["libs/chromex/src/index.ts"],
+      "@mono/color-inspector": ["libs/color-inspector/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
