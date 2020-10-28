@@ -1,7 +1,7 @@
 import './hot-reload';
-import { toPromise } from './to-promise';
 import { injectable } from 'inversify';
 import { MessageService } from '../module/message-service';
+import { toPromise } from './to-promise';
 
 @injectable()
 export class Chromex {
