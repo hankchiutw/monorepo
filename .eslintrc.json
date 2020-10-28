@@ -7,7 +7,7 @@
     "project": "./tsconfig.*?.json"
   },
   "ignorePatterns": ["**/*"],
-  "plugins": ["@typescript-eslint", "@nrwl/nx"],
+  "plugins": ["@typescript-eslint", "@nrwl/nx", "import"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -28,6 +28,15 @@
         "depConstraints": [
           { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }
         ]
+      }
+    ],
+    "comma-dangle": ["warn", "always-multiline"],
+    "semi": ["warn", "always"],
+    "no-console": ["warn"],
+    "import/order": [
+      "warn",
+      {
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
     ]
   },
