@@ -17,6 +17,13 @@ export const PaperProjectProvider: FunctionComponent<PaperProjectProviderProps> 
 
   return (
     <PaperProjectContext.Provider value={context}>
+      <style jsx>{`
+        canvas {
+          position: fixed;
+          width: 100%;
+          height: 100%;
+        }
+      `}</style>
       <canvas ref={canvasCallback}></canvas>
       {context ? props.children : null}
     </PaperProjectContext.Provider>

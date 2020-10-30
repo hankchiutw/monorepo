@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Cursor from './cursor';
+import Inspector from './inspector';
 
-describe('Cursor', () => {
+describe('Inspector', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Cursor />);
+    const { baseElement } = render(<Inspector />);
     expect(baseElement).toBeTruthy();
   });
 });
