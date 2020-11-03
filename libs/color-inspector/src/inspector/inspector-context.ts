@@ -6,6 +6,8 @@ export interface IInspectorContext {
   cursor: paper.Group;
   cells: PixelCell[];
   inspector: paper.Group;
+  raster: paper.Raster;
+  setRaster: (raster: paper.Raster) => void;
 }
 
 export const InspectorContext = React.createContext<IInspectorContext>(null);
