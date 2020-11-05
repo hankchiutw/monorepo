@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/any-color',
     '<rootDir>/libs/chromex',
     '<rootDir>/libs/color-inspector',
+    '<rootDir>/libs/chromex-utils',
   ],
 };

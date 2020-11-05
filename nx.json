@@ -35,6 +35,9 @@
     },
     "color-inspector": {
       "tags": []
+    },
+    "chromex-utils": {
+      "tags": []
     }
   }
 }

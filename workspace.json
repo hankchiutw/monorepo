@@ -151,6 +151,37 @@
           }
         }
       }
+    },
+    "chromex-utils": {
+      "root": "libs/chromex-utils",
+      "sourceRoot": "libs/chromex-utils/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/chromex-utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/chromex-utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/chromex-utils",
+            "tsConfig": "libs/chromex-utils/tsconfig.lib.json",
+            "packageJson": "libs/chromex-utils/package.json",
+            "main": "libs/chromex-utils/src/index.ts",
+            "assets": ["libs/chromex-utils/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {

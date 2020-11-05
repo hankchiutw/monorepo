@@ -1,6 +1,6 @@
+import { MessageService } from 'chromex-utils';
 import { Container } from 'inversify';
 import { Chromex } from './lib/chromex';
-import { MessageService } from './module/message-service';
 
 const container = new Container({ defaultScope: 'Singleton' });
 container.bind<MessageService>(MessageService).toSelf();

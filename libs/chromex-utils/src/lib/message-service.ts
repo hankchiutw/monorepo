@@ -1,5 +1,5 @@
 import { injectable } from 'inversify';
-import { toPromise } from '../lib/to-promise';
+import { toPromise } from './to-promise';
 
 interface EventPayload {
   eventName: string;

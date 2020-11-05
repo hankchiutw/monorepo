@@ -1,4 +1,4 @@
-import { toPromise } from './to-promise';
+import { toPromise } from 'chromex-utils';
 
 /**
  * Recursively get all FileEntry and DirectoryEntry.
@@ -52,9 +52,10 @@ async function watchChanges() {
   }, 1000);
 }
 
-chrome.management.getSelf((self) => {
-  if (self.installType === 'development') {
-    console.log(`start hot reload at ${new Date().toLocaleString()}`);
-    watchChanges();
-  }
-});
+chrome.management &&
+  chrome.management.getSelf((self) => {
+    if (self.installType === 'development') {
+      console.log(`start hot reload at ${new Date().toLocaleString()}`);
+      watchChanges();
+    }
+  });

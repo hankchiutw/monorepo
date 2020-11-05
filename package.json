@@ -5,8 +5,9 @@
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
-    "build": "nx build",
-    "build:any-color": "nx run any-color:build --no-cache",
+    "build": "nx build --no-cache",
+    "watch": "nx build --no-cache --watch",
+    "watch:all": "nx run-many --target=build --no-cache --watch --all",
     "test": "nx test",
     "lint": "yarn nx run-many --target=lint --projects=any-color,chromex",
     "e2e": "nx e2e",

@@ -1,7 +1,6 @@
 import './hot-reload';
 import { injectable } from 'inversify';
-import { MessageService } from '../module/message-service';
-import { toPromise } from './to-promise';
+import { toPromise, MessageService } from 'chromex-utils';
 
 @injectable()
 export class Chromex {
@@ -11,7 +10,7 @@ export class Chromex {
 
   private injectedTabMap = {};
 
-  constructor(private messageService: MessageService) {
+  constructor(public message: MessageService) {
     this.handleContentInjection();
   }
 

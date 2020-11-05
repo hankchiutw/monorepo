@@ -14,13 +14,13 @@ export const InspectorProvider: FunctionComponent<InspectorProviderProps> = (
   const cells = useCells(cursor);
   const inspector = useInspector({ cursor, cells });
 
-  const [image, setImage] = useState(null);
+  const [raster, setRaster] = useState(null);
   const context = useRef<IInspectorContext>({
     cursor,
     cells,
     inspector,
-    image,
-    setImage,
+    raster,
+    setRaster,
   });
 
   return (
