@@ -3,7 +3,7 @@ import { InspectorProvider } from '../inspector';
 import { PaperProjectProvider } from '../paper-project';
 import { PublicContext, IPublicContext } from './public-context';
 
-export type ColorInspectorProps = IPublicContext
+export type ColorInspectorProps = IPublicContext;
 
 export const ColorInspector = (props: ColorInspectorProps) => {
   const [image, setImage] = useState<ColorInspectorProps['image']>();

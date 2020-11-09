@@ -1,8 +1,11 @@
-import React, { FunctionComponent, useRef, useState } from 'react';
+import React, { FunctionComponent, useRef, useState, useEffect } from 'react';
 import { Inspector } from './inspector';
 import { InspectorContext, IInspectorContext } from './inspector-context';
-import { useCursor } from './useCursor';
-import { useCells, useInspector } from './useInspector';
+import {
+  createCells,
+  createCursor,
+  createInspector,
+} from './primitive-factory';
 
 /* eslint-disable-next-line */
 export interface InspectorProviderProps {}
@@ -10,22 +13,28 @@ export interface InspectorProviderProps {}
 export const InspectorProvider: FunctionComponent<InspectorProviderProps> = (
   _props
 ) => {
-  const cursor = useCursor();
-  const cells = useCells(cursor);
-  const inspector = useInspector({ cursor, cells });
-
   const [raster, setRaster] = useState(null);
   const context = useRef<IInspectorContext>({
-    cursor,
-    cells,
-    inspector,
+    cursor: null,
+    cells: [],
+    inspector: null,
     raster,
     setRaster,
   });
 
+  useEffect(() => {
+    const cursor = createCursor();
+    const cells = createCells(cursor);
+    const inspector = createInspector({ cursor, cells });
+
+    context.current.cursor = cursor;
+    context.current.cells = cells;
+    context.current.inspector = inspector;
+  }, []);
+
   return (
     <InspectorContext.Provider value={context.current}>
-      <Inspector />
+      {context.current.inspector ? <Inspector /> : null}
     </InspectorContext.Provider>
   );
 };
