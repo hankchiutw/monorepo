@@ -28,13 +28,19 @@ function useMouseHandler() {
   const moveTo = useMoveTo();
 
   useEffect(() => {
-    paperProject.view.on('mousemove', ({ point }) => {
+    function mousemove({ point }) {
       moveTo(point);
-    });
-
-    document.body.addEventListener('mouseenter', ({ clientX, clientY }) => {
+    }
+    function mouseenter({ clientX, clientY }) {
       moveTo(new paper.Point(clientX, clientY));
-    });
+    }
+    paperProject.view.on('mousemove', mousemove);
+    document.body.addEventListener('mouseenter', mouseenter);
+
+    return () => {
+      paperProject.view.off('mousemove', mousemove);
+      document.body.removeEventListener('mouseenter', mouseenter);
+    };
   }, [paperProject, moveTo]);
 }
 
