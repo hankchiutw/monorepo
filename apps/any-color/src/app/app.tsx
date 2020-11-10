@@ -1,23 +1,30 @@
 import { ColorInspector } from '@mono/color-inspector';
 import { MessageService } from 'chromex-utils';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
+import { CapturedTab } from '../models';
 
 /* eslint-disable-next-line */
 export interface AppProps {}
 
 export const App = (props: AppProps) => {
   const messageService = useRef(new MessageService());
-  const [image] = useState<HTMLImageElement>();
-  // const [visible, setVisible] = useState(false);
+  const [image, setImage] = useState<HTMLImageElement>();
 
-  useEffect(() => {
-    messageService.current.send('requestCapture');
-    messageService.current.on('toggleInspector', () => {
-      console.log('xxx: toggleInspector');
-    });
+  const requestCapture = useCallback(async () => {
+    const detail = await messageService.current.send<CapturedTab>(
+      'requestCapture'
+    );
+    const { imgSrc, width, height } = detail;
+    const img = new Image(width, height);
+    img.src = imgSrc;
+    setImage(img);
   }, []);
 
-  return <ColorInspector image={image} />;
+  useEffect(() => {
+    requestCapture();
+  }, []);
+
+  return image ? <ColorInspector image={image} /> : null;
 };
 
 export default App;
