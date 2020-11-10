@@ -6,21 +6,20 @@ import { PublicContext, IPublicContext } from './public-context';
 export type ColorInspectorProps = IPublicContext;
 
 export const ColorInspector = (props: ColorInspectorProps) => {
-  const [image, setImage] = useState<ColorInspectorProps['image']>();
-  const context = {
-    image,
-  };
+  const [context, setContext] = useState<IPublicContext>();
 
   useEffect(() => {
-    setImage(props.image);
+    setContext({
+      image: props.image,
+    });
   }, [props.image]);
 
   return (
-    <PublicContext.Provider value={context}>
-      <PaperProjectProvider>
+    <PaperProjectProvider>
+      <PublicContext.Provider value={context}>
         <InspectorProvider />
-      </PaperProjectProvider>
-    </PublicContext.Provider>
+      </PublicContext.Provider>
+    </PaperProjectProvider>
   );
 };
 

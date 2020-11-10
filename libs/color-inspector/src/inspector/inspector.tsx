@@ -1,6 +1,5 @@
 import paper from 'paper';
-import React, { FunctionComponent, useCallback, useEffect } from 'react';
-import { usePublicContext } from '../lib/public-context';
+import { FunctionComponent, useCallback, useEffect } from 'react';
 import { usePaperProject } from '../paper-project';
 import { useInspectorContext } from './inspector-context';
 
@@ -39,36 +38,10 @@ function useMouseHandler() {
   }, [paperProject, moveTo]);
 }
 
-function useImageHandler() {
-  const { image } = usePublicContext();
-  const paperProject = usePaperProject();
-  const { setRaster } = useInspectorContext();
-
-  useEffect(() => {
-    const { width, height } = image;
-    paperProject.view.viewSize = new paper.Size(width, height);
-    const rasterize = () => {
-      const raster = new paper.Raster(image);
-      raster.position = new paper.Point(width / 2, height / 2);
-      raster.width = width;
-      raster.height = height;
-      raster.visible = false;
-
-      setRaster(raster);
-
-      // refresh
-      // this.moveTo(this.group.position);
-    };
-
-    image.complete ? rasterize() : image.addEventListener('load', rasterize);
-  }, [image, setRaster, paperProject]);
-}
-
 export const Inspector: FunctionComponent<InspectorProps> = (_props) => {
   useMouseHandler();
-  useImageHandler();
 
-  return <div></div>;
+  return null;
 };
 
 export default Inspector;

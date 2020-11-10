@@ -23,6 +23,7 @@ export const PaperProjectProvider: FunctionComponent<PaperProjectProviderProps> 
           width: 100%;
           height: 100%;
           z-index: ${Number.MAX_SAFE_INTEGER};
+          cursor: none;
         }
       `}</style>
       <canvas ref={canvasCallback}></canvas>
