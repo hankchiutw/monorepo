@@ -91,6 +91,8 @@ export function createInspector({
   ]);
   mask.clipped = true;
 
+  const targetCell = cells[(cells.length - 1) / 2];
+  targetCell.highlight();
   const inspector = new paper.Group([mask, cursor]);
   inspector.pivot = new paper.Point(0, 0);
   return inspector;
