@@ -22,6 +22,20 @@ export const App = (props: AppProps) => {
 
   useEffect(() => {
     requestCapture();
+
+    let timerId: number;
+    const debounceSend = () => {
+      // if (!this.app.visible) {
+      //   return;
+      // }
+      window.clearTimeout(timerId);
+      // this.app.hide();
+      timerId = window.setTimeout(() => {
+        requestCapture();
+      }, 200);
+    };
+    window.addEventListener('scroll', debounceSend);
+    window.addEventListener('resize', debounceSend);
   }, []);
 
   return image ? <ColorInspector image={image} /> : null;
