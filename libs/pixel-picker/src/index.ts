@@ -1,1 +1,1 @@
-export * from './lib/pixel-picker';
+export * from './public-api';

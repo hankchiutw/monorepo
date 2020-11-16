@@ -10,21 +10,7 @@ const kCellSize = 30;
 export class Inspector {
   public onCopy = (_color: string) => {};
 
-  private group: paper.Group;
-  private cells: PixelCell[] = [];
-  private raster: paper.Raster;
-
-  private get targetCell() {
-    return this.cells[(this.cells.length - 1) / 2];
-  }
-
-  constructor(private project: PaperProject) {
-    this.initUI();
-    this.trackMouse();
-    this.handleColorCopy();
-  }
-
-  public loadImage(img: HTMLImageElement) {
+  public set image(img: HTMLImageElement) {
     this.project.view.viewSize = new paper.Size(img.width, img.height);
     const rasterize = () => {
       const raster = new paper.Raster(img);
@@ -35,7 +21,7 @@ export class Inspector {
       this.raster = raster;
 
       // refresh
-      this.moveTo(this.group.position);
+      this.position = this.group.position;
     };
 
     img.complete ? rasterize() : img.addEventListener('load', rasterize);
@@ -45,15 +31,28 @@ export class Inspector {
    * Update inspector's position.
    *
    * @remarks
-   * Update cell colors in the meanwhile if having the rater image.
+   * Update cell colors in the meanwhile if having the raster image.
    */
-  private moveTo(point: paper.Point) {
+  public set position(point: paper.Point) {
     this.group.position = point;
     if (this.raster) {
       this.cells.forEach((cell) => {
         cell.setColor(this.raster.getPixel(cell.position));
       });
     }
+  }
+
+  private group: paper.Group;
+  private cells: PixelCell[] = [];
+  private raster: paper.Raster;
+
+  private get targetCell() {
+    return this.cells[(this.cells.length - 1) / 2];
+  }
+
+  constructor(private project: PaperProject) {
+    this.initUI();
+    this.handleColorCopy();
   }
 
   /**
@@ -71,7 +70,7 @@ export class Inspector {
             pixelAt: new paper.Point(x, y),
             pivot: new paper.Point(x, y).add(offset),
             size: kCellSize,
-          }),
+          })
         );
       }
     }
@@ -84,19 +83,6 @@ export class Inspector {
 
     this.group = new paper.Group([magnifier, cursor]);
     this.group.pivot = new paper.Point(0, 0);
-  }
-
-  /**
-   * Keep inspector's position sync with mouse.
-   */
-  private trackMouse() {
-    this.project.view.on('mousemove', ({ point }) => {
-      this.moveTo(point);
-    });
-
-    document.body.addEventListener('mouseenter', ({ clientX, clientY }) => {
-      this.moveTo(new paper.Point(clientX, clientY));
-    });
   }
 
   /**
