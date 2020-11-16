@@ -182,6 +182,37 @@
           }
         }
       }
+    },
+    "pixel-picker": {
+      "root": "libs/pixel-picker",
+      "sourceRoot": "libs/pixel-picker/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/pixel-picker/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/pixel-picker/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/pixel-picker",
+            "tsConfig": "libs/pixel-picker/tsconfig.lib.json",
+            "packageJson": "libs/pixel-picker/package.json",
+            "main": "libs/pixel-picker/src/index.ts",
+            "assets": ["libs/pixel-picker/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {

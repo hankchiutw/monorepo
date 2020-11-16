@@ -18,7 +18,8 @@
     "paths": {
       "chromex": ["libs/chromex/src/index.ts"],
       "@mono/color-inspector": ["libs/color-inspector/src/index.ts"],
-      "chromex-utils": ["libs/chromex-utils/src/index.ts"]
+      "chromex-utils": ["libs/chromex-utils/src/index.ts"],
+      "pixel-picker": ["libs/pixel-picker/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
