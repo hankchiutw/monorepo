@@ -1,5 +1,5 @@
-import { ColorInspector } from '@mono/color-inspector';
 import { MessageService } from 'chromex-utils';
+import { pixelPickerFactory, PixelPicker } from 'pixel-picker';
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { CapturedTab } from '../models';
 
@@ -25,8 +25,11 @@ function useCapture(): [HTMLImageElement, () => void] {
 
 export const App = (_props: AppProps) => {
   const [image, requestCapture] = useCapture();
+  const canvasRef = useRef();
+  const pickerRef = useRef<PixelPicker>();
 
   useEffect(() => {
+    pickerRef.current = pixelPickerFactory(canvasRef.current);
     requestCapture();
 
     let timerId: number;
@@ -44,7 +47,11 @@ export const App = (_props: AppProps) => {
     };
   }, []);
 
-  return image ? <ColorInspector image={image} /> : null;
+  useEffect(() => {
+    pickerRef.current.image = image;
+  }, [image]);
+
+  return <canvas ref={canvasRef}></canvas>;
 };
 
 export default App;

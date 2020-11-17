@@ -3,6 +3,9 @@ import { Inspector } from './inspector';
 
 export class PixelPicker {
   public set image(img: HTMLImageElement) {
+    if (!img) {
+      return;
+    }
     this.inspector.image = img;
   }
 
