@@ -34,6 +34,8 @@ export const App = (_props: AppProps) => {
 
     let timerId: number;
     const debounceSend = () => {
+      // to avoid capture the picker itself
+      pickerRef.current.visible = false;
       window.clearTimeout(timerId);
       timerId = window.setTimeout(() => {
         requestCapture();
@@ -49,6 +51,7 @@ export const App = (_props: AppProps) => {
 
   useEffect(() => {
     pickerRef.current.image = image;
+    pickerRef.current.visible = true;
   }, [image]);
 
   return <canvas ref={canvasRef}></canvas>;

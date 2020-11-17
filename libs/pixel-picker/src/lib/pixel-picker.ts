@@ -9,6 +9,11 @@ export class PixelPicker {
     this.inspector.image = img;
   }
 
+  public set visible(value: boolean) {
+    this.project.view.element.style.visibility = value ? 'inherit' : 'hidden';
+    this.project.view.element.style.cursor = value ? 'none' : 'inherit';
+  }
+
   constructor(private inspector: Inspector, private project: paper.Project) {
     this.trackMouse();
   }
