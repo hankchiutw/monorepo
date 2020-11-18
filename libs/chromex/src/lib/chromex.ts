@@ -1,6 +1,6 @@
 import './hot-reload';
-import { injectable } from 'inversify';
 import { toPromise, MessageService } from 'chromex-utils';
+import { injectable } from 'inversify';
 
 @injectable()
 export class Chromex {
@@ -11,6 +11,7 @@ export class Chromex {
   private injectedTabMap = {};
 
   constructor(public message: MessageService) {
+    this.handleTabUpdated();
     this.handleContentInjection();
   }
 
@@ -52,11 +53,20 @@ export class Chromex {
     });
   }
 
-  public async getActiveTabId(): Promise<number> {
+  private async getActiveTabId(): Promise<number> {
     const tabs = await toPromise<chrome.tabs.Tab[]>(chrome.tabs.query)({
       active: true,
       currentWindow: true,
     });
     return tabs[0].id;
+  }
+
+  /**
+   * Keep `injectedTabMap` reliable when tab updated.
+   */
+  private handleTabUpdated() {
+    chrome.tabs.onUpdated.addListener((tabId) => {
+      delete this.injectedTabMap[tabId];
+    });
   }
 }
