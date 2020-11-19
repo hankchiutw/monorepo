@@ -7,8 +7,10 @@ import { copy } from './utils';
 const kInspectorSize = 11; // should be odd
 const kCellSize = 30;
 
+type OnCopyCallback = (color: string) => void;
+
 export class Inspector {
-  public onCopy = (_color: string) => {};
+  public onCopy: OnCopyCallback = null;
 
   public set image(img: HTMLImageElement) {
     this.project.view.viewSize = new paper.Size(img.width, img.height);
@@ -92,7 +94,9 @@ export class Inspector {
     this.project.view.on('click', () => {
       const color = this.targetCell.color;
       copy(color);
-      this.onCopy(color);
+      if (typeof this.onCopy === 'function') {
+        this.onCopy(color);
+      }
     });
   }
 }
