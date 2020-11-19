@@ -15,6 +15,10 @@ export class Chromex {
     this.handleContentInjection();
   }
 
+  public isInjected(tabId: number): boolean {
+    return !!this.injectedTabMap[tabId];
+  }
+
   /**
    * Inject the {@link contentScript} into the {@link tabId}.
    */

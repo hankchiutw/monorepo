@@ -31,6 +31,8 @@ const captureVisibleTab = async (): Promise<CapturedTab> => {
 
 chromex.message.on('requestCapture', captureVisibleTab);
 
-chrome.browserAction.onClicked.addListener(async () => {
-  await chromex.message.sendTab('toggleInspector');
+chrome.browserAction.onClicked.addListener(({ id }) => {
+  if (chromex.isInjected(id)) {
+    chromex.message.sendTab('toggleInspector');
+  }
 });
