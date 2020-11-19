@@ -1,5 +1,5 @@
 import paper from 'paper';
-import { Inspector } from './inspector';
+import { Inspector, OnCopyCallback } from './inspector';
 
 export class PixelPicker {
   public set image(img: HTMLImageElement) {
@@ -7,6 +7,13 @@ export class PixelPicker {
       return;
     }
     this.inspector.image = img;
+  }
+
+  public set onCopy(callback: OnCopyCallback) {
+    if (typeof callback !== 'function') {
+      return;
+    }
+    this.inspector.onCopy = callback;
   }
 
   public get visible() {

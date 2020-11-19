@@ -7,7 +7,7 @@ import { copy } from './utils';
 const kInspectorSize = 11; // should be odd
 const kCellSize = 30;
 
-type OnCopyCallback = (color: string) => void;
+export type OnCopyCallback = (colorHex: string) => void;
 
 export class Inspector {
   public onCopy: OnCopyCallback = null;
