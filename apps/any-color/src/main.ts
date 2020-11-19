@@ -7,10 +7,6 @@ chromex.contentScript = 'content.js';
 chromex.injectOnCommands = ['toggle-inspector'];
 chromex.injectOnClicked = true;
 
-chromex.message.on('requestCapture', () => {
-  return captureVisibleTab();
-});
-
 const captureVisibleTab = async (): Promise<CapturedTab> => {
   const tabs = await toPromise<chrome.tabs.Tab[]>(chrome.tabs.query)({
     active: true,
@@ -32,3 +28,9 @@ const captureVisibleTab = async (): Promise<CapturedTab> => {
   };
   return capturedTab;
 };
+
+chromex.message.on('requestCapture', captureVisibleTab);
+
+chrome.browserAction.onClicked.addListener(async () => {
+  await chromex.message.sendTab('toggleInspector');
+});
