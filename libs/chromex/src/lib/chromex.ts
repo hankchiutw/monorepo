@@ -15,7 +15,8 @@ export class Chromex {
     this.handleContentInjection();
   }
 
-  public isInjected(tabId: number): boolean {
+  public async isInjected(): Promise<boolean> {
+    const tabId = await this.getActiveTabId();
     return !!this.injectedTabMap[tabId];
   }
 
