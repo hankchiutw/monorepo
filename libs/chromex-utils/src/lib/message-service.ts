@@ -64,6 +64,8 @@ export class MessageService {
           Promise.resolve(callback(payload.detail)).then((result) => {
             sendResponse(result);
           });
+        } else {
+          sendResponse(null);
         }
         // keep the connection open during the async execution
         return true;
