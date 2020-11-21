@@ -10,5 +10,8 @@
     ],
     "@babel/preset-react",
     "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "styled-jsx/babel"
   ]
 }
