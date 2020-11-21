@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppContext } from '../app-context';
+import { ColorLabel } from '../color-label';
 import { useHintContext } from '../hint';
 import { useCapturedImage } from '../hooks';
 import { usePicker } from './usePicker';
@@ -23,7 +24,7 @@ export const Picker = (_props: PickerProps) => {
 
     pickerRef.current.onCopy = (hex: string) => {
       openHint({
-        content: hex,
+        content: <ColorLabel color={hex}>{hex} copied!</ColorLabel>,
       });
     };
   }, []);
