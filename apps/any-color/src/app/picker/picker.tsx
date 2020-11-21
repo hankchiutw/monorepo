@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppContext } from '../app-context';
+import { useHintContext } from '../hint';
 import { useCapturedImage } from '../hooks';
 import { usePicker } from './usePicker';
 
@@ -8,6 +9,7 @@ export interface PickerProps {}
 
 export const Picker = (_props: PickerProps) => {
   const { messageService } = useAppContext();
+  const { open: openHint } = useHintContext();
   const { pickerRef, canvasRef } = usePicker();
   const { setCapturedImage } = useCapturedImage(pickerRef);
 
@@ -18,6 +20,12 @@ export const Picker = (_props: PickerProps) => {
         setCapturedImage();
       }
     });
+
+    pickerRef.current.onCopy = (hex: string) => {
+      openHint({
+        content: hex,
+      });
+    };
   }, []);
 
   return <canvas ref={canvasRef}></canvas>;

@@ -1,13 +1,13 @@
-import React, { forwardRef, MutableRefObject } from 'react';
+import React, { FunctionComponent } from 'react';
 
 /* eslint-disable-next-line */
 export interface HintProps {
-  content: string;
+  visible: boolean;
 }
 
-const Hint = (props: HintProps, ref: MutableRefObject<HTMLDivElement>) => {
+export const Hint: FunctionComponent<HintProps> = ({ children, visible }) => {
   return (
-    <div className="host" ref={ref}>
+    <div className="host">
       <style jsx>{`
         .host {
           position: fixed;
@@ -20,13 +20,9 @@ const Hint = (props: HintProps, ref: MutableRefObject<HTMLDivElement>) => {
           box-sizing: border-box;
           height: 48px;
           color: white;
-          opacity: 0;
           transition: opacity 0.15s;
           pointer-events: none;
-        }
-
-        .host(.visible) {
-          opacity: 1;
+          opacity: ${visible ? 1 : 0};
         }
 
         .content {
@@ -35,11 +31,9 @@ const Hint = (props: HintProps, ref: MutableRefObject<HTMLDivElement>) => {
           height: 100%;
         }
       `}</style>
-      {props.content}
+      <div className="content">{children}</div>
     </div>
   );
 };
 
-const _Hint = forwardRef(Hint);
-export { _Hint as Hint };
 export default Hint;
