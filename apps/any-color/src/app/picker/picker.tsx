@@ -32,6 +32,7 @@ export const Picker = (_props: PickerProps) => {
       openHint({
         content: <ColorLabel color={hex}>{hex} copied!</ColorLabel>,
       });
+      pickerRef.current.visible = false;
     };
   }, []);
 
