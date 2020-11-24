@@ -22,6 +22,12 @@ export const Picker = (_props: PickerProps) => {
       }
     });
 
+    window.addEventListener('keydown', ({ key }) => {
+      if (key === 'Escape') {
+        pickerRef.current.visible = false;
+      }
+    });
+
     pickerRef.current.onCopy = (hex: string) => {
       openHint({
         content: <ColorLabel color={hex}>{hex} copied!</ColorLabel>,
