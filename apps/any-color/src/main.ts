@@ -4,7 +4,6 @@ import { toPromise } from 'chromex-utils';
 import { CapturedTab } from './models';
 
 chromex.contentScript = 'content.js';
-chromex.injectOnCommands = ['toggle-inspector'];
 chromex.injectOnClicked = true;
 
 const captureVisibleTab = async (): Promise<CapturedTab> => {
@@ -34,13 +33,5 @@ chromex.message.on('requestCapture', captureVisibleTab);
 chrome.browserAction.onClicked.addListener(async () => {
   if (await chromex.isInjected()) {
     chromex.message.sendTab('toggleInspector');
-  }
-});
-
-chrome.commands.onCommand.addListener(async (command: string) => {
-  if (command === 'toggle-inspector') {
-    if (await chromex.isInjected()) {
-      chromex.message.sendTab('toggleInspector');
-    }
   }
 });

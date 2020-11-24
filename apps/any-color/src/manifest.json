@@ -15,17 +15,17 @@
     "persistent": false
   },
   "browser_action": {
-    "default_title": "Click or press Cmd/Ctrl+Shift+A to launch AnyColor",
-    "name": "Click to invoke AnyColor inspector"
+    "default_title": "Click or press Alt+Shift+A to launch AnyColor",
+    "name": "Click to launch AnyColor"
   },
   "permissions": ["activeTab"],
   "commands": {
-    "toggle-inspector": {
+    "_execute_browser_action": {
       "suggested_key": {
-        "default": "Ctrl+Shift+A",
-        "mac": "Command+Shift+A"
+        "default": "Alt+Shift+A",
+        "mac": "Alt+Shift+A"
       },
-      "description": "Toggle AnyColor inspector"
+      "description": "Toggle AnyColor"
     }
   },
   "web_accessible_resources": ["assets/*"]
