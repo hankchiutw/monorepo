@@ -1,7 +1,8 @@
-import { pixelPicker } from './pixel-picker';
+import { PixelPicker, pixelPickerFactory } from './pixel-picker';
 
-describe('pixelPicker', () => {
-  it('should work', () => {
-    expect(pixelPicker()).toEqual('pixel-picker');
+describe('PixelPicker', () => {
+  it('should create PixelPicker instance', () => {
+    const target = pixelPickerFactory(document.createElement('canvas'));
+    expect(target).toBeInstanceOf(PixelPicker);
   });
 });

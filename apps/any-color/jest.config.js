@@ -1,11 +1,7 @@
 module.exports = {
   displayName: 'any-color',
   preset: '../../jest.preset.js',
-  setupFiles: [
-    '<rootDir>/src/test-setup.ts',
-    'jest-canvas-mock',
-    'jest-webextension-mock',
-  ],
+  setupFiles: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
       tsConfig: '<rootDir>/tsconfig.spec.json',
