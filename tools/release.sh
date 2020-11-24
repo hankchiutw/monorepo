@@ -29,7 +29,7 @@ VERSION=$(${VERSION_SH} ${JSON_FILE})
 OUTPUT_DIR=${REPO_DIR}/dist/${PROJECT_PATH}
 OUTPUT_ZIP=${REPO_DIR}/dist/${PROJECT_NAME}_${VERSION}.zip
 
-yarn build:${PROJECT_NAME} --prod
+yarn build ${PROJECT_NAME} --prod
 cd ${OUTPUT_DIR}
 zip -r ${OUTPUT_ZIP} *
 
