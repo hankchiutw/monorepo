@@ -44,9 +44,7 @@ export class PixelPicker {
 }
 
 export function pixelPickerFactory(canvas: HTMLCanvasElement) {
-  canvas.style.position = 'fixed';
   canvas.style.cursor = 'none';
-  canvas.style.zIndex = `${Number.MAX_SAFE_INTEGER}`;
 
   const project = new paper.Project(canvas);
   const inspector = new Inspector(project);

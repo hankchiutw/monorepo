@@ -36,7 +36,17 @@ export const Picker = (_props: PickerProps) => {
     };
   }, []);
 
-  return <canvas ref={canvasRef}></canvas>;
+  return (
+    <>
+      <style jsx>{`
+        canvas {
+          position: fixed;
+          z-index: ${Number.MAX_SAFE_INTEGER};
+        }
+      `}</style>
+      <canvas ref={canvasRef}></canvas>
+    </>
+  );
 };
 
 export default Picker;
