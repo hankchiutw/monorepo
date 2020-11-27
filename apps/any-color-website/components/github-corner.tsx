@@ -7,7 +7,7 @@ function GithubCorner() {
       <style jsx>{styles}</style>
       <a
         className="host"
-        href="https://github.com/hankchiutw/any-color"
+        href="https://github.com/hankchiutw/monorepo/tree/main/apps/any-color"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="View source on GitHub"
