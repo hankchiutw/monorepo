@@ -1,96 +1,50 @@
-import React from 'react';
+import {
+  FakeBrowser,
+  Snackbar,
+  SnackbarContext,
+  GithubCorner,
+} from '../components';
+import React, { useRef } from 'react';
+import styles from '../styles/index.styles';
 
-import styles from './index.module.scss';
+export default function Home() {
+  const snackbarRef = useRef<Snackbar>(null);
 
-export function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.scss file.
-   */
   return (
-    <div className={styles.page}>
-      <h2>Resources &amp; Tools</h2>
-      <p>Thank you for using and showing some ♥ for Nx.</p>
-      <div className="flex github-star-container">
-        <a
-          href="https://github.com/nrwl/nx"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {' '}
-          If you like Nx, please give it a star:
-          <div className="github-star-badge">
-            <img src="/star.svg" className="material-icons" alt="" />
-            Star
+    <>
+      <style jsx>{styles}</style>
+      <GithubCorner></GithubCorner>
+
+      <SnackbarContext.Provider value={snackbarRef}>
+        <div className="container">
+          <header>
+            <img src="/header.png" />
+          </header>
+          <div className="fake-browser">
+            <FakeBrowser></FakeBrowser>
           </div>
-        </a>
-      </div>
-      <p>Here are some links to help you get started.</p>
-      <ul className="resources">
-        <li className="col-span-2">
           <a
-            className="resource flex"
-            href="https://connect.nrwl.io/app/courses/nx-workspaces/intro"
+            className="crxAnchor"
+            href="https://chrome.google.com/webstore/detail/any-color/cmehpadapglhhambdiafddpfjdngonba"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Nx video course
+            Get Chrome extension
           </a>
-        </li>
-        <li className="col-span-2">
-          <a
-            className="resource flex"
-            href="https://nx.dev/react/getting-started/what-is-nx"
-          >
-            Nx video tutorial
-          </a>
-        </li>
-        <li className="col-span-2">
-          <a
-            className="resource flex"
-            href="https://nx.dev/react/tutorial/01-create-application"
-          >
-            Interactive tutorial
-          </a>
-        </li>
-        <li className="col-span-2">
-          <a className="resource flex" href="https://connect.nrwl.io/">
-            <img
-              height="36"
-              alt="Nrwl Connect"
-              src="https://connect.nrwl.io/assets/img/CONNECT_ColorIcon.png"
-            />
-            <span className="gutter-left">Nrwl Connect</span>
-          </a>
-        </li>
-      </ul>
-      <h2>Next Steps</h2>
-      <p>Here are some things you can do with Nx.</p>
-      <details open>
-        <summary>Add UI library</summary>
-        <pre>{`# Generate UI lib
-nx g @nrwl/react:lib ui
-
-# Add a component
-nx g @nrwl/react:component xyz --project ui`}</pre>
-      </details>
-      <details>
-        <summary>View dependency graph</summary>
-        <pre>{`nx dep-graph`}</pre>
-      </details>
-      <details>
-        <summary>Run affected commands</summary>
-        <pre>{`# see what's been affected by changes
-nx affected:dep-graph
-
-# run tests for current changes
-nx affected:test
-
-# run e2e tests for current changes
-nx affected:e2e
-`}</pre>
-      </details>
-    </div>
+          <div className="footer">
+            ©&nbsp;
+            <a
+              href="https://hankchiu.tw"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              hankchiu.tw
+            </a>
+            &nbsp;2020
+          </div>
+        </div>
+        <Snackbar ref={snackbarRef}></Snackbar>
+      </SnackbarContext.Provider>
+    </>
   );
 }
-
-export default Index;
