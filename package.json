@@ -11,6 +11,7 @@
     "watch:all": "run-p 'watch any-color' 'watch chromex' 'watch chromex-utils' 'watch pixel-picker'",
     "bump:any-color": "./tools/bump.sh apps/any-color",
     "release:any-color": "./tools/release.sh apps/any-color",
+    "release:any-color-website": "nx run any-color-website:export",
     "test": "nx test",
     "test:all": "yarn nx run-many --target=test --all",
     "lint": "nx lint",
