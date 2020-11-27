@@ -1,9 +1,8 @@
 <p align="center">
-  <img src="./website/public/header.png" width="300" alt="AnyColor">
+  <img src="../any-color-website/public/header.png" width="300" alt="AnyColor">
   <br>
   <a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly"></a>
   <a href="https://chrome.google.com/webstore/detail/any-color/cmehpadapglhhambdiafddpfjdngonba"><img src="https://img.shields.io/chrome-web-store/v/cmehpadapglhhambdiafddpfjdngonba" alt="Chrome extension"></a>
-  <a href="https://github.com/hankchiutw/any-color"><img src="https://img.shields.io/github/package-json/v/hankchiutw/any-color?label=package.json" alt="package.json version" ></a>
 </p>
 <p align="center">
 <img src="./any-color-demo.gif" alt="AnyColor demo">
