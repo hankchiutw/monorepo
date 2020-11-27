@@ -41,6 +41,13 @@
     },
     "pixel-picker": {
       "tags": []
+    },
+    "any-color-website": {
+      "tags": []
+    },
+    "any-color-website-e2e": {
+      "tags": [],
+      "implicitDependencies": ["any-color-website"]
     }
   }
 }

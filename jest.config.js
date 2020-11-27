@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/color-inspector',
     '<rootDir>/libs/chromex-utils',
     '<rootDir>/libs/pixel-picker',
+    '<rootDir>/apps/any-color-website',
   ],
 };
