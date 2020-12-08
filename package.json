@@ -5,6 +5,7 @@
   "scripts": {
     "nx": "nx",
     "start": "yarn watch:all",
+    "serve:any-color-website": "yarn nx run any-color-website:serve",
     "build": "nx build --skip-nx-cache --with-deps --parallel --maxParallel=100 --project",
     "build:all": "nx run-many --target=build --skip-nx-cache --all --parallel --maxParallel=100",
     "watch": "nx build --watch --project",
