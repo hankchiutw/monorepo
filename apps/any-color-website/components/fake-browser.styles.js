@@ -54,17 +54,4 @@ export default css`
     background-color: #f8f8f8;
     position: relative;
   }
-
-  .content img {
-    width: 100%;
-    display: block;
-  }
-
-  .content canvas {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-  }
 `;
