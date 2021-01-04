@@ -26,7 +26,7 @@ describe('Subjectize', () => {
       public prop2: string;
 
       @SubjectizeProps(['prop1', 'prop2'])
-      public prop12$ = new ReplaySubject<[string, any]>(1);
+      public prop12$ = new ReplaySubject<[string, number | string]>(1);
 
       @Subjectize('prop1')
       public prop1$ = new ReplaySubject<number>(1);
@@ -57,7 +57,7 @@ describe('Subjectize', () => {
       public prop2: string;
 
       @SubjectizeProps(['prop1', 'prop2'])
-      public prop12$ = new ReplaySubject<[string, any]>(1);
+      public prop12$ = new ReplaySubject<[string, number | string]>(1);
 
       @Subjectize('prop1')
       public prop1$ = new ReplaySubject<number>(1);

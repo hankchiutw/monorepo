@@ -11,10 +11,10 @@ import { extendPropertyAccessor } from '../utils/extendPropertyAccessor';
  * ```
  */
 export function SubjectizeProps(keys: string[]): PropertyDecorator {
-  return (proto: any, propKey: string) => {
+  return (proto: unknown, propKey: string) => {
     keys.forEach((keyToWatch) => {
       extendPropertyAccessor(proto, keyToWatch, {
-        set: function (value: any) {
+        set: function (value: unknown) {
           this[propKey].next([keyToWatch, value]);
         },
       });

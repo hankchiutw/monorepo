@@ -1,10 +1,13 @@
+type Getter = () => unknown;
+type Setter = (_: unknown) => void;
+
 /**
  * Extend a property getter or setter.
  */
 export function extendPropertyAccessor(
-  proto: string,
+  proto: unknown,
   prop: string,
-  config: { get?: any; set?: any }
+  config: { get?: Getter; set?: Setter }
 ) {
   const internalKey = `__${prop}`;
   const propDescriptor = Object.getOwnPropertyDescriptor(proto, prop);
@@ -18,7 +21,7 @@ export function extendPropertyAccessor(
         return this[internalKey];
       };
 
-  const set = function (value: any) {
+  const set = function (value: undefined) {
     this[internalKey] = value;
     // keep existing setter working
     if (propDescriptor) {

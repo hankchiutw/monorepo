@@ -15,9 +15,9 @@ import { extendPropertyAccessor } from '../utils/extendPropertyAccessor';
  * ```
  */
 export function Subjectize(keyToWatch: string): PropertyDecorator {
-  return (proto: any, propKey: string) => {
+  return (proto: unknown, propKey: string) => {
     extendPropertyAccessor(proto, keyToWatch, {
-      set: function (value: any) {
+      set: function (value: unknown) {
         this[propKey].next(value);
       },
     });

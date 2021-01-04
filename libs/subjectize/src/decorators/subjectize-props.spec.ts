@@ -9,7 +9,7 @@ describe('SubjectizeProps', () => {
       public prop2: string;
 
       @SubjectizeProps(['prop1', 'prop2'])
-      public prop12$ = new ReplaySubject<[string, any]>(1);
+      public prop12$ = new ReplaySubject<[string, number | string]>(1);
     }
 
     const obj = new Test();
@@ -40,7 +40,7 @@ describe('SubjectizeProps', () => {
       public prop1$ = new ReplaySubject<number>(1);
 
       @SubjectizeProps(['prop1', 'prop2'])
-      public prop12$ = new ReplaySubject<[string, any]>(1);
+      public prop12$ = new ReplaySubject<[string, number | string]>(1);
     }
 
     const obj = new Test();
@@ -61,7 +61,7 @@ describe('SubjectizeProps', () => {
       public prop1$ = new ReplaySubject<number>(1);
 
       @SubjectizeProps(['prop1', 'prop2'])
-      public prop12$ = new ReplaySubject<[string, any]>(1);
+      public prop12$ = new ReplaySubject<[string, number | string]>(1);
     }
 
     const obj = new Test();
@@ -90,10 +90,10 @@ describe('SubjectizeProps', () => {
       public prop3: string;
 
       @SubjectizeProps(['prop1', 'prop2'])
-      public prop12$ = new ReplaySubject<[string, any]>(1);
+      public prop12$ = new ReplaySubject<[string, number | string]>(1);
 
       @SubjectizeProps(['prop1', 'prop3'])
-      public prop13$ = new ReplaySubject<[string, any]>(1);
+      public prop13$ = new ReplaySubject<[string, number | string]>(1);
     }
 
     const obj = new Test();
