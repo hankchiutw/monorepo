@@ -48,6 +48,9 @@
     "any-color-website-e2e": {
       "tags": [],
       "implicitDependencies": ["any-color-website"]
+    },
+    "subjectize": {
+      "tags": []
     }
   }
 }

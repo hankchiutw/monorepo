@@ -289,6 +289,37 @@
           }
         }
       }
+    },
+    "subjectize": {
+      "root": "libs/subjectize",
+      "sourceRoot": "libs/subjectize/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/subjectize/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/subjectize/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/subjectize",
+            "tsConfig": "libs/subjectize/tsconfig.lib.json",
+            "packageJson": "libs/subjectize/package.json",
+            "main": "libs/subjectize/src/index.ts",
+            "assets": ["libs/subjectize/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/libs/chromex-utils',
     '<rootDir>/libs/pixel-picker',
     '<rootDir>/apps/any-color-website',
+    '<rootDir>/libs/subjectize',
   ],
 };
