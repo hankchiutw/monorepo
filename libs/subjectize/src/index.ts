@@ -1,1 +1,1 @@
-export * from './lib/subjectize';
+export * from './public-api';
