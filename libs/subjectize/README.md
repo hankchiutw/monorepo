@@ -3,8 +3,8 @@
 
 <p>
 <img alt="Version" src="https://img.shields.io/npm/v/subjectize" />
-<a href="https://twitter.com/hankchiu\_tw" target="_blank">
-<img alt="Twitter: hankchiu\_tw" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fhankchiu_tw" />
+<a href="https://twitter.com/hankchiu_tw" target="_blank">
+<img alt="Twitter: hankchiu_tw" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fhankchiu_tw" />
 </a>
 </p>
 

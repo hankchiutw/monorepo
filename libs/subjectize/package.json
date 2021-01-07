@@ -1,6 +1,6 @@
 {
   "name": "subjectize",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "TypeScript decorators for binding RxJS Subject with class properties",
   "keywords": [
     "rxjs",
